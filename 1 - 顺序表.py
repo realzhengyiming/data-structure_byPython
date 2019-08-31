@@ -37,10 +37,10 @@ class seqListImplement(ABC):  # 接口类确定接口
         '''please implements in subclass'''
 
     @abstractmethod
-    def Length(self):   # 按位查找
-        '''please implements in subclass'''
+    def Length(self):   
+        '''please implements in subclass 获得长度'''
 
-    @abstractmethod  # 返回线性表的长度
+    @abstractmethod  # 按为查找
     def Get(self, index):
         '''please implements in subclass'''
 
