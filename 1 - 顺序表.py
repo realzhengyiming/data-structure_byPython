@@ -146,7 +146,7 @@ class seqList(seqListImplement):
 
 
 class seqListTestCase(unittest.TestCase):
-    '''测试 book_function.py'''
+    '''测试 seqlist function.py'''
 
     def test_seqListPrint(self):
         '''测试 Print函数'''
