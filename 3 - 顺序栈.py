@@ -33,19 +33,19 @@ class SepStackImplement(ABC):
         '''please implements in subclass'''
 
     @abstractmethod
-    def Push(self,val):  # 按位查找
+    def Push(self,val):  
         '''please implements in subclass'''
 
-    @abstractmethod  # 返回线性表的长度
+    @abstractmethod  
     def GetTop(self):
         '''please implements in subclass'''
 
     @abstractmethod
-    def Pop(self):  # 按值查找位
+    def Pop(self):  
         '''please implements in subclass'''
 
     @abstractmethod
-    def Empty(self):  # 在某个位中插入
+    def Empty(self): 
         '''please implements in subclass'''
 
     @abstractmethod
@@ -73,7 +73,7 @@ class SepStack(SepStackImplement):
             top -=1
         return templist
 
-    def Push(self,val):  # 按位查找
+    def Push(self,val):  
         assert val != None, "不能为空值"
         self.dataList.append(val)
         self.top += 1
@@ -84,7 +84,7 @@ class SepStack(SepStackImplement):
         else:
             return None
 
-    def Pop(self):  # 按值查找位
+    def Pop(self):  
         if not self.Empty():
             temp = self.dataList[self.top]
             self.top -= 1
@@ -92,7 +92,7 @@ class SepStack(SepStackImplement):
         else:
             return None
 
-    def Empty(self):  # 在某个位中插入
+    def Empty(self): 
         if self.top == -1:
             return True
         else:
@@ -102,7 +102,7 @@ class SepStack(SepStackImplement):
 
 
 class seqListTestCase(unittest.TestCase):
-    '''测试 book_function.py'''
+    '''测试 '''
 
     def test_Print(self):
         '''测试 Print函数'''
