@@ -17,12 +17,10 @@
     2）或者就是一个桶，装书......
 -------------------------------------------------
 """
-
+# todo 设置长度的，需要
 __author__ = 'zhengyimiing'
 
 import unittest
-
-
 from abc import ABC, abstractmethod
 
 
@@ -45,37 +43,41 @@ class SepStackImplement(ABC):
         '''please implements in subclass'''
 
     @abstractmethod
-    def Empty(self): 
+    def Empty(self):  
         '''please implements in subclass'''
 
     @abstractmethod
     def PrintList(self):  # 打印所有的值
         '''please implements in subclass'''
 
+maxLength=100  # 顺序表式定长的
+
 
 class SepStack(SepStackImplement):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)  # 父类的继承
-        self.dataList = []
+        self.dataList = ["*" for i in range(100)]  # 预先设置好初始长度为100的顺序线性表。
         self.top = -1
         if kwargs.get('dataList') != None :
-            self.dataList = kwargs.get('dataList')
-            self.top = len(self.dataList)-1  # 栈顶，顺序栈也是从0开始的下标
+            tempdataList = kwargs.get('dataList')
+            for i in range(len(tempdataList)):
+                self.dataList[i] = tempdataList[i]
+            self.top = len(tempdataList)-1  # 栈顶，顺序栈也是从0开始的下标
 
 
     def PrintList(self):
         templist = []
         top = self.top
-        while top!= -1:  # 到栈底了
-            print(self.dataList[top])
+        while top!= -1:  # 到栈底了,有这个好像其他的不会受到影响的
+            print(self.dataList[top])  # todo 我就说没那么容易嘛，固定长度的。
             templist.append(self.dataList[top])
             top -=1
         return templist
 
     def Push(self,val):  
         assert val != None, "不能为空值"
-        self.dataList.append(val)
+        self.dataList[self.top+1] = val
         self.top += 1
 
     def GetTop(self):
@@ -102,7 +104,7 @@ class SepStack(SepStackImplement):
 
 
 class seqListTestCase(unittest.TestCase):
-    '''测试 '''
+    '''测试 book_function.py'''
 
     def test_Print(self):
         '''测试 Print函数'''
