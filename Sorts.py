@@ -42,9 +42,10 @@ def quick_sort(lists,left,right):
         while left <right and lists[left] <= key:
             left += 1
         lists[right] = lists[left]
-        quick_sort(lists,low,left-1)
-        quick_sort(lists,left+1,high)
-        return lists
+    lists[right] = key    
+    quick_sort(lists,low,left-1)
+    quick_sort(lists,left+1,high)
+    return lists
         
 
 
