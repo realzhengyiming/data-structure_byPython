@@ -30,7 +30,7 @@
 
 数据结构文件夹 python实现
 
-[所有的文件在这儿](https://github.com/realzhengyiming/data-structure_byPython/tree/master/DataStruct/*py)
+[直接点这儿也行叭😂](https://github.com/realzhengyiming/data-structure_byPython/tree/master/DataStruct/)
 
 
 
@@ -41,6 +41,8 @@
 # Model_Approach
 
 设计模式文件夹 python实现
+
+[直接点这里也行咯😂](https://github.com/realzhengyiming/data-structure_byPython/tree/master/Model_Approach/Python_version)
 
 
 
