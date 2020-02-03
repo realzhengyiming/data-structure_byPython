@@ -30,7 +30,7 @@
 
 数据结构文件夹 python实现
 
-[](./DataStruct/*.py)
+[所有的文件在这儿](https://github.com/realzhengyiming/data-structure_byPython/tree/master/DataStruct/*py)
 
 
 
