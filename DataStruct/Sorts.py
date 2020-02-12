@@ -18,7 +18,7 @@ def bubble_sort(lists):
     return lists
 
 
-# 归并排序两部分
+# 归并排序两部分，这个是合并有序数列
 def merge(left,right):
     i,j = 0,0  # 初始化i,j
     result = []
@@ -30,7 +30,7 @@ def merge(left,right):
             result.append(right[j])
             j += 1
     result += left[i:]  # 这儿直接把i后面未添加的直接加进来，以为已经排好序了
-    result += right[j:]
+    result += right[j:]    # 两个都是直接把后面的添加进来就好，默认leftlist比较小来处理，并且有序
     return result
 
 
@@ -48,17 +48,19 @@ def merge_sort(lists):
 def quick_sort(lists,left,right):
     if left>=right:
         return lists
-    low = left
-    high = right
+    low = 0   # 这儿的左边必须为最左边
+    high = len(lists)
     key = lists[left]  # 这个就是pivot，设定这个作为比较的枢轴 ，把值暂存
-    while left<right :
+    while left<right : # 只要上层的L R没相遇在同一个下标中，那就继续
         while left<right and lists[right] >= key:
             right -= 1   # 不断的往前移动
         lists[left] = lists[right]  # 把小的值给初始的left位置 
         while left<right and lists[left] <= key:
             left += 1
         lists[right] = lists[left]   # 把这个大于中间值的数给右边
-    lists[right] = key  # 这个时候
+    lists[right] = key  # 出来while循环的时候就是L 和 R 相遇的时候，这时候把key放上去与就可以了
+    print(lists)
+    print(f" 0  1  2  3  4  5--enter  {left}  {right}")
     quick_sort(lists,low,left-1)  # 把左右的
     quick_sort(lists,left+1,high)
     return lists
