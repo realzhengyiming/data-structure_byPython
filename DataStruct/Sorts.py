@@ -1,7 +1,8 @@
 #encoding:utf-8
+# 默认都是从小到大排序
+
 # 1
 def select_sort(lists):
-    min = 0
     for i in range(0,len(lists)):
         min = i
         for j in range(i+1,len(lists)):
@@ -12,9 +13,9 @@ def select_sort(lists):
 
 # 2
 def bubble_sort(lists):
-    for i in range(0,len(lists)-1):  # 外层就是总共对比次数，i没用,len() 结果就是下标大一的，再range也是下标大一的
-        for j in range(len(lists)-1-i):  # 注意：这儿需要减去一轮 ，因为使用的是range，所以需要-1,就是为了确保不越界
-            if lists[j]>lists[j+1]:  # 不会越界，因为j界顶，总在减小，越到后面，界顶都移动到开头了
+    for i in range(len(lists)):  # i没用，所以没关系，遍历全部就可以了
+        for j in range(len(lists)-1):
+            if lists[j]>lists[j+1]:  # 把大的往后面沉 沉底的意思。默认都是从小到大
                 lists[j],lists[j+1] = lists[j+1],lists[j]
     return lists
 
