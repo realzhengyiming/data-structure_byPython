@@ -56,6 +56,9 @@ def phoneFactory(phone_code):  # phone_code like "iphone_zhengyiming"
     your_phone._name = phone_code.split("_")[-1]
     return your_phone
 
+# 抽象的工厂方法
+
+
 
 if __name__ == '__main__':
     print("工厂方法")
