@@ -15,7 +15,7 @@ class iphone:
     
     @phone_name.setter
     def phone_name(self,name):
-        if isinstance(value, int) or isinstance(value, str) or isinstance(value, float):
+        if isinstance(name, int) or isinstance(name, str) or isinstance(name, float):
             raise ValueError('Name must be type of "str" or "float" or "int"')
         elif len(name)==0:
             raise ValueError('Name cant be "" ')
@@ -35,7 +35,7 @@ class android:
     
     @phone_name.setter
     def phone_name(self,name):
-        if isinstance(value, int) or isinstance(value, str) or isinstance(value, float):
+        if isinstance(name, int) or isinstance(name, str) or isinstance(name, float):
             raise ValueError('Name must be type of "str" or "float" or "int"')
         elif len(name)==0:
             raise ValueError('Name cant be "" ')
@@ -58,5 +58,7 @@ def phoneFactory(phone_code):  # phone_code like "iphone_zhengyiming"
 
 
 if __name__ == '__main__':
+    print("工厂方法")
     print(phoneFactory("iphone_zhengyiming"))
     print(phoneFactory("android_zhengyiming"))
+    print("抽象工厂方法")
