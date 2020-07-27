@@ -58,6 +58,10 @@ def phoneFactory(phone_code):  # phone_code like "iphone_zhengyiming"
 
 # 抽象的工厂方法
 # 比如适配不同的操作系统的东西等，就非常的实在的例子,可以这样写两个独立的类，然后使用工厂模式来隐藏细节，
+# 抽象工厂设计模式是一种一般化的工厂方法
+# 总的来说，一个抽象工厂是一些工厂方法的
+# （逻辑）集合，其中每一个工厂方法负责生成
+# 种不同的对象
 
 import sys
 class Linux_python:
