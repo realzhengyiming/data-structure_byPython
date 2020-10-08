@@ -21,7 +21,8 @@ def recurrence_jieceng(n):
     if n <= 1:
         return 1
     print(n)
-    return n*recurrence_jieceng(n - 1)  # 迭代，但是只有迭代是没有的，相当于for
+    total = n*recurrence_jieceng(n - 1)  # 迭代，但是只有迭代是没有的，相当于for
+    return total
     # 还需要处理
 
 
