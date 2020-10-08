@@ -56,7 +56,9 @@ def restructTree2(postorder, inorder):
     else:
         root_val = postorder[-1]
         pivot = inorder.index(root_val)  # 假设元素不重复
-        root = TreeNode(root_val)  # 主要是这个的不同
+        root = TreeNode(root_val)
+
+        # 主要是这个的不同，python的切片[n:m] 是下标从n开始到m-1结束的意思，不包括m
         root.left = restructTree(postorder[:pivot], inorder[:pivot + 1])
         root.right = restructTree(postorder[pivot:-1], inorder[pivot + 1:])  # 这儿取的时候要把末尾的根结点去掉，找对对应的左右子节点的序列
         return root
@@ -71,4 +73,3 @@ if __name__ == '__main__':
     pre_print(root)
     print()
     pre_print(root2)
-
