@@ -30,26 +30,24 @@ result = []
 
 
 # 1.全排列的解决
-def template(input):  # 输入一个正整数n，用来做什么的呢
-    result = []
+def template(input):
+    result = []  # 这里用列表来处理这个东西
 
     # 函数的函数
     def trace(path, choices):
         # 结束条件
         if len(path) == len(input):
-            # print("到底部了")
-            # print(path)
             result.append([path.copy()])  # 一条路径回溯到底才添加进来，这样又涉及到深拷贝浅拷贝了。这种情况如果使用[]那就是浅拷贝，后面的pop会清空；list则返回一个新的
             # result.append(list(path))  # 一条路径回溯到底才添加进来，这样又涉及到深拷贝浅拷贝了。这种情况如果使用[]那就是浅拷贝，后面的pop会清空；list则返回一个新的
             return
 
             # 做选择
         for item in choices:
-            if item in path:
-                continue  # 剪枝操作
+            if item in path:  # 排除不合法的，做选择
+                continue
             path.append(item)  # 前面没选过这个的话那就添加进来
-            trace(path, choices)  # 路径回溯
-            path.pop()  # 撤销选择的操作
+            trace(path, choices)  # 路径迭代
+            path.pop()  # 撤销选择的操作（回溯）核心名词在这里
 
     trace([], input)  # 运行函数，默认的path是空的，没做任何选择
     return result
@@ -122,7 +120,7 @@ def N_queen2(n):
             res.append(copy.deepcopy(board))  # 把这个结果放进去  ，果然是python神拷贝，浅拷贝的问题
             # return 这儿不返回，是因为不是迭代的返回，回滚不通过这样的操作，结果还可能很多呢
         for col in range(len(board)):  # 每一行的每一列来进行开始操作
-            if not check_position(board, row, col):
+            if not check_position(board, row, col):  # 排除不合法的选择
                 continue  # 继续循环
             # 2.做选择
             board[row][col] = "Q"  # 放置皇后
@@ -150,7 +148,7 @@ def N_queen2(n):
         print()
     # return res
 
-
+# todo 随机生成一个迷宫，然后再使用回溯算法，探索出迷宫的路，生成路
 # todo 水满寻路算法，叫什么给忘记了，可以多线程，多方向进行寻路的吧。
 
 if __name__ == '__main__':
