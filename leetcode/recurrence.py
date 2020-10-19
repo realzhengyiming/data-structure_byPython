@@ -30,7 +30,8 @@ def recurrence_jieceng(n):
 # 其实平时说的分而治之的意思也就是递归的意思；
 # 所以快速排序，和归并排序其实也就是递归的分而治之而已
 # 按照思考的过程自己把过程还原回来，按框架走，这就是把知识联系起来，如果只是零散在一旁，总是会被忘记的
-
+# 归并的递推方程可以写成（状态方程）：f(lists) = f(lists[mid:]) + f(lists[:mid])
+# 就是这样，然后里面核心的后置遍历操作是合并两个相对有序的数组/列表，最小子问题
 def merge(lists):
     # 1。停止条件
     if len(lists) <= 1:
@@ -45,9 +46,9 @@ def merge(lists):
     # 此处是合并相对有序的两个数组
     i, j = 0, 0
     result = []
-    while i < len(left) and j < len(right):
-        print(left)
-        print(right)
+    while i < len(left) and j < len(right):  # 优化的话就是减少比对次数，相对有序的情况下
+        # print(left)
+        # print(right)
         if left[i] <= right[j]:
             result.append(left[i])
             i += 1
@@ -68,5 +69,5 @@ if __name__ == '__main__':
     # print(recurrence_jieceng(3))
 
     # 归并排序
-    result = merge([1, 2, 4, 6, 7, 5, 1])
+    result = merge([9, 8, 7, 6, 5, 4, 3, 2, 1, 1])
     print(result)
