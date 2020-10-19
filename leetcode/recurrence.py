@@ -13,6 +13,7 @@ def sum_jieceng(n):
         total *= i
     return total
 
+
 # 递归三个条件
 # 1.递归结束条件（没有的话就变成无限递归，类似死循环）
 # 2.递归继续《调用自身，开始树形往下--》
@@ -21,13 +22,51 @@ def recurrence_jieceng(n):
     if n <= 1:
         return 1
     print(n)
-    total = n*recurrence_jieceng(n - 1)  # 迭代，但是只有迭代是没有的，相当于for
+    total = n * recurrence_jieceng(n - 1)  # 迭代，但是只有迭代是没有的，相当于for
     return total
     # 还需要处理
 
 
+# 其实平时说的分而治之的意思也就是递归的意思；
+# 所以快速排序，和归并排序其实也就是递归的分而治之而已
+# 按照思考的过程自己把过程还原回来，按框架走，这就是把知识联系起来，如果只是零散在一旁，总是会被忘记的
+
+def merge(lists):
+    # 1。停止条件
+    if len(lists) <= 1:
+        return lists
+
+    mid = len(lists) // 2  # 整除，分两边
+    # 2。开始两边递归 ，树是一样的
+    left = merge(lists[:mid])
+    right = merge(lists[mid:])  # 递归下去划分
+
+    # 3。类似后续遍历，这儿是递归结束后操作的情况
+    # 此处是合并相对有序的两个数组
+    i, j = 0, 0
+    result = []
+    while i < len(left) and j < len(right):
+        print(left)
+        print(right)
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    result += left[i:]  # √  # 后面剩下的部分也直接添加进来,不能用append
+    result += right[j:]
+    return result  # 合并排好序的两个数组返回回去
+
+    # 相当于后置遍历的二叉树了，又是递归的思想解决重复的子问题，还能优化吗
+
+
 if __name__ == '__main__':
-    print()
-    print(sum_jieceng(3))
-    print()
-    print(recurrence_jieceng(3))
+    # print()
+    # print(sum_jieceng(3))
+    # print()
+    # print(recurrence_jieceng(3))
+
+    # 归并排序
+    result = merge([1, 2, 4, 6, 7, 5, 1])
+    print(result)

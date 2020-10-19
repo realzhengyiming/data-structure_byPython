@@ -36,11 +36,11 @@ def merge(left,right):
     return result
 
 
-def merge_sort(lists):
+def merge_sort(lists):  # 先递归后合并处理（相当于后序遍历）
     if len(lists) <= 1:
         return lists
     num = len(lists) // 2   # python3中需要使用// 来获得整数的商
-    left = merge_sort(lists[:num])
+    left = merge_sort(lists[:num]) # 返回的都是后面带顺序后的
     right = merge_sort(lists[num:])  # 这种就是递归的思想，不过左右边都一样的
     result = merge(left,right)
     return result
@@ -82,10 +82,10 @@ def insert_sort(lists):
 
 
 # 6堆排序
-def adjust_head(lists,i,size):
-    lchild = 2*i+1
-    rchild = 2*i+1 
-    maxs =
+# def adjust_head(lists,i,size):
+#     lchild = 2*i+1
+#     rchild = 2*i+1
+#     maxs =
 
 # 7 希尔排序  这个没问题，插入排序的改进版，所以他的核心分组操作时为了
 # 最后一次的插入操作整体已经变得相对的有序了，减少了插入排序最坏情况移
