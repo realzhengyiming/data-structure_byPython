@@ -8,7 +8,11 @@
 
 def binarySearch(lists, target):
     '''
-    基本的框架步骤
+    基本的框架步骤,常规的二分查找，算法理解一样要能够想象出完整的数据的 变化，移动，对比，交换等的顺序，
+    切不可死记硬背，这样才有效果。二分法衍生问题找到最左边的，找到最右边的。
+
+    主要和选定的起始左边和右边有关，然后是搜索区间的不同，注意一定不要漏掉区间
+
     :param lists:  要搜索的列表（已经排好了顺序，这儿应该是不重复的列表）
     :param target: 目标的值
     :return:
@@ -27,6 +31,11 @@ def binarySearch(lists, target):
             right = mid -1
 
     return -1  # 如果没有找到
+
+# 排序数组中查找元素的第一个和最后一个元素的位置
+# 统一使用【左边，右边】闭区间这样，
+def left_index_binarySearch(lists, target):
+    pass
 
 
 if __name__ == '__main__':

@@ -100,7 +100,7 @@ def Leetcode752():
         q = Queue()
         visited = set()
         depth = 0
-        try_time = 0
+        # try_time = 0
 
         q.put(start)
         visited.add(start)
@@ -111,15 +111,15 @@ def Leetcode752():
             for i in range(qz):  # 队列中每个已经做过的选择取出来，再把这些选择附近还可以做的选择加入队列--
                 val = q.get()
                 if val == target:
-                    return depth, try_time
-                try_time += 1
+                    return depth
+                # try_time += 1
                 ## 如果要每一种可能当成一次探索
                 for i in range(len(val)):  # 这个是按位数来，其实是有四种选择，需要都表示出来，增加数字减少数字那个只是其中的操作
                     # todo 字符串如何拼接回去
-                    n_s_int = plus(val, i)
-                    if n_s_int not in visited:
-                        q.put(n_s_int)
-                        visited.add(n_s_int)
+                    n_s_int = plus(val, i)  # 做选择后的结果，
+                    if n_s_int not in visited:  # 看看有没有访问过，集合内
+                        q.put(n_s_int)  # 入队
+                        visited.add(n_s_int)  # 设置访问过。
 
                     n_s_int2 = sub(val, i)
                     if n_s_int2 not in visited:

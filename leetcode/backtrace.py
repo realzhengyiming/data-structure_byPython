@@ -37,7 +37,7 @@ nums = 3
 result = []
 
 
-# 1.全排列的解决
+# 1.全排列的解决，列表来存储做过的选择，和结果；  如果是bsf就是队列
 def template(input):
     result = []  # 这里用列表来处理这个东西
 
@@ -51,7 +51,7 @@ def template(input):
 
             # 做选择
         for item in choices:
-            if item in path:  # 排除不合法的，做选择
+            if item in path:  # 排除不合法的，做选择；已经做过的，或者不能做的那种限制的。
                 continue
             path.append(item)  # 前面没选过这个的话那就添加进来
             trace(path, choices)  # 路径迭代
